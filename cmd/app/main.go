@@ -8,6 +8,7 @@ import (
 
 	redorblack "davgames/internal/games/RedorBlack"
 	"davgames/internal/games/dice"
+	"davgames/internal/games/slots"
 	"davgames/internal/users"
 )
 
@@ -53,7 +54,7 @@ func main() {
 		case "2":
 			playRedOrBlack(currentUser)
 		case "3":
-			playSlotMachine()
+			playSlotMachine(currentUser)
 		case "4":
 			fmt.Print("\033[1;33mLogging out...\033[0m\n")
 			main()
@@ -101,7 +102,7 @@ func playRedOrBlack(user *users.User) {
 	game.Play()
 }
 
-func playSlotMachine() {
-	fmt.Print("\n\033[1;35m🎰 SLOT MACHINE 🎰\033[0m\n")
-	fmt.Print("\033[1;33mComing soon...\033[0m\n")
+func playSlotMachine(currentUser *users.User) {
+	game := slots.New(currentUser)
+	game.Play()
 }

@@ -7,13 +7,13 @@ users:
       balance: 100
     - name: Jaime
       password: "123456"
-      balance: 100
+      balance: 0
     - name: Nacho
       password: "123456"
       balance: 100
     - name: god
       password: amen
-      balance: 9999991978
+      balance: 9999991881
     - name: homeless
       password: "1"
       balance: 0
