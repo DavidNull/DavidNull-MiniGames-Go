@@ -1,0 +1,19 @@
+users:
+    - name: David
+      password: "123456"
+      balance: 130
+    - name: Hector
+      password: "123456"
+      balance: 100
+    - name: Jaime
+      password: "123456"
+      balance: 100
+    - name: Nacho
+      password: "123456"
+      balance: 100
+    - name: god
+      password: amen
+      balance: 9999991978
+    - name: homeless
+      password: "1"
+      balance: 0
