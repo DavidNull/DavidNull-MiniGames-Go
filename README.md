@@ -20,6 +20,8 @@ A collection of console-based casino games written in Go, featuring user authent
 | **Dice Game** 🎲 | Bet on a number (1-6) and roll the dice | 5× your bet if you win |
 | **Red or Black** 🃏 | Choose a color and test your luck | 2× your bet if you win |
 | **Slot Machine** 🎰 | Spin the reels and match symbols | 3× to 25× your bet depending on symbols |
+| **Fastest Typer** ⌨️ | Type 5 words as fast as you can | 2-player competition |
+| **Escape the Maze** 🧭 | Navigate through a random maze to find the exit | 2-player competition |
 | **More games coming soon!** | | |
 
 ## 💾 Installation
@@ -67,6 +69,23 @@ Match symbols to win:
    - Different symbols: Lose your bet
 
 Type 'help' at the slot machine to see the paytable with symbol probabilities.
+
+### ⌨️ Fastest Typer
+
+A 2-player typing competition:
+   - Each player gets challenged with 5 random words
+   - Type the exact words (with correct spelling) as quickly as possible
+   - The player who types all words correctly in the shortest time wins
+   - Words are randomly selected from various categories
+
+### 🧭 Escape the Maze
+
+A 2-player maze navigation challenge:
+   - Each player gets their own randomly generated maze
+   - Use WASD keys to navigate (W=up, A=left, S=down, D=right)
+   - Find the exit (E) as quickly as possible
+   - The player who escapes in the shortest time wins
+   - Type "quit" to give up
 
 ## 🌐 Network Play (Coming Soon)
 
