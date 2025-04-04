@@ -204,6 +204,7 @@ func (g *Game) displayPaytable() {
 	fmt.Println(" 🍒 > 🍊 > 🍋 > 🍇 > 🍉 > 🍎 > 7️⃣ > 🐰 ")
 	fmt.Println("\033[1;33m========================\033[0m")
 }
+
 //probabilities:
 // 🍒: 25%
 // 🍊: 20%
@@ -213,3 +214,16 @@ func (g *Game) displayPaytable() {
 // 🍎: 8%
 // 7️⃣: 5%
 // 🐰: 2%
+
+// centerText centra el texto en un ancho específico
+func centerText(text string, width int) string {
+	if len(text) >= width {
+		return text
+	}
+
+	spaces := width - len(text)
+	leftSpaces := spaces / 2
+	rightSpaces := spaces - leftSpaces
+
+	return strings.Repeat(" ", leftSpaces) + text + strings.Repeat(" ", rightSpaces)
+}

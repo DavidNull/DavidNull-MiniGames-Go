@@ -13,7 +13,7 @@ users:
       balance: 100
     - name: god
       password: amen
-      balance: 9999991881
+      balance: 9999991879
     - name: homeless
       password: "1"
       balance: 0
