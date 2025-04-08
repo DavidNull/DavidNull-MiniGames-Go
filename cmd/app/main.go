@@ -7,6 +7,7 @@ import (
 	"strings"
 
 	redorblack "davgames/internal/games/RedorBlack"
+	"davgames/internal/games/battleship"
 	"davgames/internal/games/dice"
 	"davgames/internal/games/fastesttyper"
 	"davgames/internal/games/maze"
@@ -89,7 +90,7 @@ func displayMenu() {
 	fmt.Print("\033[1;32m🎮 Local 2 Players 🎮\033[0m\n")
 	fmt.Print("\033[1;36m4. 🤠 Fastest typer in the West ⌨️\033[0m\n")
 	fmt.Print("\033[1;36m5. 🧭 Leave the maze! 🧗‍♂️\033[0m\n")
-	fmt.Print("\033[1;36m6. 🚢 Battleship 🚢 Coming Soon! 🚢\033[0m\n")
+	fmt.Print("\033[1;36m6. 🚢 Battleship 🚢\033[0m\n")
 	fmt.Print("\033[1;35m🌐 LAN Games (Coming Soon!) 🌐\033[0m\n")
 	fmt.Print("\033[1;36m7. Logout 🔑\033[0m\n")
 	fmt.Print("\033[1;31mQ. Quit 🚫\033[0m\n")
@@ -132,7 +133,6 @@ func playMazeGame(currentUser *users.User) {
 }
 
 func playBattleship(currentUser *users.User) {
-	fmt.Println("Battleship is coming soon!")
-	fmt.Print("\033[1;37mPress Enter to continue...\033[0m\n")
-	bufio.NewScanner(os.Stdin).Scan()
+	game := battleship.New(currentUser)
+	game.Play()
 }

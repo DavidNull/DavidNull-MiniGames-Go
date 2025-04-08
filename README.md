@@ -22,6 +22,7 @@ A collection of console-based casino games written in Go, featuring user authent
 | **Slot Machine** 🎰 | Spin the reels and match symbols | 3× to 25× your bet depending on symbols |
 | **Fastest Typer** ⌨️ | Type 5 words as fast as you can | 2-player competition |
 | **Escape the Maze** 🧭 | Navigate through a random maze to find the exit | 2-player competition |
+| **Battleship** 🚢 | Classic naval combat with a 10x10 grid | 2-player competition |
 | **More games coming soon!** | | |
 
 ## 💾 Installation
@@ -87,6 +88,16 @@ A 2-player maze navigation challenge:
    - The player who escapes in the shortest time wins
    - Type "quit" to give up
 
+### 🚢 Battleship
+
+A 2-player naval combat game:
+   - Fixed 10x10 grid for balanced gameplay
+   - 5 different ships of varying sizes (2-5 spaces)
+   - Place ships manually or automatically
+   - Take turns firing at opponent's grid
+   - Sink all your opponent's ships to win
+   - Classic strategic gameplay
+
 ## 🌐 Network Play (Coming Soon)
 
 To enable networked gameplay on your local network:
@@ -105,7 +116,7 @@ To enable networked gameplay on your local network:
 
 4. Players can join games in progress or start their own from the shared server.
 
-## 👨‍�� Author
+## 🐰 Author
 
 DavidNull
 
