@@ -1,4 +1,4 @@
-# 🎲 DavidNull-MiniGames-Go
+# 🎲 DavidNull-MiniGames-Go <img src="assets/img/Logo_davidnull_games.png" align="right" width="200" height="200" alt="DavidNull Games Logo" style="margin-top: -20px; margin-left: 10px;">
 
 A collection of console-based casino games written in Go, featuring user authentication, persistent balances, and CLI interface.
 
@@ -111,7 +111,6 @@ To enable networked gameplay on your local network:
    ```bash
    ./DavidNullGames --connect <host-ip-address>
    ```
-
 3. All players will share the same YAML database of users and balances.
 
 4. Players can join games in progress or start their own from the shared server.
@@ -119,4 +118,5 @@ To enable networked gameplay on your local network:
 ## 🐰 Author
 
 DavidNull
+
 
