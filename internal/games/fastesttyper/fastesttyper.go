@@ -16,7 +16,7 @@ var wordLists = map[string][]string{
 	"colors":     {"red", "blue", "green", "yellow", "purple", "orange", "black", "white", "pink", "brown", "gray", "gold", "silver", "bronze", "maroon"},
 	"fruits":     {"apple", "banana", "orange", "grape", "strawberry", "pear", "peach", "mango", "kiwi", "lemon", "lime", "cherry", "plum", "fig", "papaya"},
 	"countries":  {"france", "spain", "japan", "brazil", "canada", "india", "china", "russia", "italy", "mexico", "egypt", "korea", "peru", "chile", "cuba"},
-	"food":       {"pizza", "pasta", "sushi", "burger", "taco", "salad", "soup", "bread", "rice", "beans", "fish", "steak", "chips", "cake", "eggs"},
+	"friends":    {"joel", "jorge", "nestor", "adrian", "lucas", "tomas", "hector", "carlos", "jaime"},
 	"sports":     {"soccer", "tennis", "golf", "rugby", "boxing", "skiing", "surfing", "running", "cycling", "swimming", "diving", "skating", "hockey", "judo", "polo"},
 	"simple":     {"the", "and", "is", "in", "it", "you", "that", "he", "was", "for", "on", "are", "with", "as", "his"},
 	"verbs":      {"run", "jump", "swim", "eat", "sleep", "read", "write", "sing", "dance", "play", "work", "talk", "walk", "think", "laugh"},
@@ -81,7 +81,7 @@ func (g *Game) Play() {
 	case "7":
 		g.WordList = wordLists["simple"]
 	case "8":
-		g.WordList = wordLists["verbs"]
+		g.WordList = wordLists["friends"]
 	case "9":
 		g.WordList = wordLists["adjectives"]
 	case "10":

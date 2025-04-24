@@ -1,4 +1,4 @@
-# 🎲 DavidNull-MiniGames-Go <img src="assets/img/Logo_davidnull_games.png" align="right" width="200" height="200" alt="DavidNull Games Logo" style="margin-top: -10px; margin-left: 20px; border-radius: 15px; float: right; clear: both;">
+# 🎲 DavidNull-MiniGames-Go <img src="assets/img/Logo_davidnull_games.png" align="right" width="200" height="200" alt="DavidNull Games Logo" style="margin-top: -10px; margin-left: 20px; float: right; clear: both;">
 
 A collection of console-based casino games written in Go, featuring user authentication, persistent balances, and CLI interface.
 
