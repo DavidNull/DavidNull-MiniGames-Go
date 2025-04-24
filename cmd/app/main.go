@@ -2,7 +2,11 @@ package main
 
 import (
 	"bufio"
+	"flag"
 	"fmt"
+	"log"
+	"net"
+	"net/http"
 	"os"
 	"strings"
 
@@ -12,10 +16,102 @@ import (
 	"davgames/internal/games/fastesttyper"
 	"davgames/internal/games/maze"
 	"davgames/internal/games/slots"
+	"davgames/internal/network"
 	"davgames/internal/users"
 )
 
+const (
+	DEFAULT_PORT = "8080"
+)
+
 func main() {
+	// Definir flags para modos servidor y cliente
+	isServer := flag.Bool("server", false, "Run as server")
+	connectTo := flag.String("connect", "", "Connect to server IP")
+	port := flag.String("port", DEFAULT_PORT, "Port to use for server/client")
+	flag.Parse()
+
+	// Ejecutar en modo servidor si se especifica
+	if *isServer {
+		startServer(*port)
+		return
+	}
+
+	// Ejecutar en modo cliente si se especifica
+	if *connectTo != "" {
+		connectToServer(*connectTo, *port)
+		return
+	}
+
+	// Modo normal de un solo jugador
+	startLocalGame()
+}
+
+func startServer(port string) {
+	fmt.Printf("\033[1;33m🎲 DAVIDNULL GAMES - SERVER MODE 🎲\033[0m\n")
+	fmt.Printf("\033[1;33m================================\033[0m\n")
+	fmt.Printf("\033[1;32mStarting server on port %s...\033[0m\n", port)
+
+	// Cargar usuarios
+	usersData, err := users.LoadUsers()
+	if err != nil {
+		fmt.Printf("\033[1;31mError loading users: %v\033[0m\n", err)
+		return
+	}
+
+	// Iniciar servidor HTTP
+	http.HandleFunc("/", network.HandleRoot)
+	http.HandleFunc("/users", network.HandleUsers(usersData))
+	http.HandleFunc("/games", network.HandleGames)
+
+	// Mostrar información del servidor
+	localIP := getLocalIP()
+	fmt.Printf("\033[1;32mServer running!\033[0m\n")
+	fmt.Printf("\033[1;32mLocal IP: %s\033[0m\n", localIP)
+	fmt.Printf("\033[1;32mPort: %s\033[0m\n", port)
+	fmt.Printf("\033[1;33mPlayers can connect using:\033[0m\n")
+	fmt.Printf("\033[1;36m./DavidNullGames --connect %s\033[0m\n", localIP)
+
+	// Iniciar servidor
+	log.Fatal(http.ListenAndServe(":"+port, nil))
+}
+
+func connectToServer(serverIP, port string) {
+	fmt.Printf("\033[1;33m🎲 DAVIDNULL GAMES - CLIENT MODE 🎲\033[0m\n")
+	fmt.Printf("\033[1;33m================================\033[0m\n")
+	fmt.Printf("\033[1;32mConnecting to server at %s:%s...\033[0m\n", serverIP, port)
+
+	// Intentar conectar al servidor
+	_, err := http.Get(fmt.Sprintf("http://%s:%s/", serverIP, port))
+	if err != nil {
+		fmt.Printf("\033[1;31mError connecting to server: %v\033[0m\n", err)
+		return
+	}
+
+	fmt.Printf("\033[1;32mConnected to server!\033[0m\n")
+
+	// Iniciar cliente
+	network.StartClient(serverIP, port)
+}
+
+func getLocalIP() string {
+	addrs, err := net.InterfaceAddrs()
+	if err != nil {
+		return "unknown"
+	}
+
+	for _, address := range addrs {
+		if ipnet, ok := address.(*net.IPNet); ok && !ipnet.IP.IsLoopback() {
+			if ipnet.IP.To4() != nil {
+				return ipnet.IP.String()
+			}
+		}
+	}
+
+	return "127.0.0.1"
+}
+
+func startLocalGame() {
 	scanner := bufio.NewScanner(os.Stdin)
 
 	usersData, err := users.LoadUsers()

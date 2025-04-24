@@ -98,7 +98,7 @@ A 2-player naval combat game:
    - Sink all your opponent's ships to win
    - Classic strategic gameplay
 
-## 🌐 Network Play (Coming Soon)
+## 🌐 Network Play
 
 To enable networked gameplay on your local network:
 
@@ -114,6 +114,14 @@ To enable networked gameplay on your local network:
 3. All players will share the same YAML database of users and balances.
 
 4. Players can join games in progress or start their own from the shared server.
+
+5. You can specify a custom port (default is 8080):
+   ```bash
+   ./DavidNullGames --server --port 9090
+   ```
+   ```bash
+   ./DavidNullGames --connect 192.168.1.100 --port 9090
+   ```
 
 ## 🐰 Author
 
