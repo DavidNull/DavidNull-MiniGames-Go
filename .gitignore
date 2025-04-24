@@ -1,0 +1,23 @@
+# Compiled Go binary
+DavidNullGames
+
+# Go specific files
+*.exe
+*.dll
+*.so
+*.dylib
+
+# Log files
+*.log
+
+# Test binary
+*.test
+
+# Output of go coverage tool
+*.out
+
+# IDE specific files
+.idea/
+.vscode/
+*.swp
+*.swo

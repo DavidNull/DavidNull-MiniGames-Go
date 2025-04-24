@@ -7,7 +7,10 @@ import (
 	"strings"
 
 	redorblack "davgames/internal/games/RedorBlack"
+	"davgames/internal/games/battleship"
 	"davgames/internal/games/dice"
+	"davgames/internal/games/fastesttyper"
+	"davgames/internal/games/maze"
 	"davgames/internal/games/slots"
 	"davgames/internal/users"
 )
@@ -22,8 +25,8 @@ func main() {
 	}
 
 	clearScreen()
-	fmt.Print("\033[1;33m🎲 WELCOME TO CASINO GAMES 🎲\033[0m\n")
-	fmt.Print("\033[1;33m=============================\033[0m\n")
+	fmt.Print("\033[1;33m🎲 WELCOME TO DAVIDNULL GAMES 🎲\033[0m\n")
+	fmt.Print("\033[1;33m================================\033[0m\n")
 	usersData.ShowPlayers()
 
 	fmt.Print("\n\033[1;36mEnter your username🚀: \033[0m")
@@ -56,6 +59,12 @@ func main() {
 		case "3":
 			playSlotMachine(currentUser)
 		case "4":
+			playFastestTyper(currentUser)
+		case "5":
+			playMazeGame(currentUser)
+		case "6":
+			playBattleship(currentUser)
+		case "7":
 			fmt.Print("\033[1;33mLogging out...\033[0m\n")
 			main()
 		case "q", "Q":
@@ -72,12 +81,18 @@ func main() {
 
 func displayMenu() {
 	clearScreen()
-	fmt.Print("\033[1;33m🎲 CASINO GAMES 🎲\033[0m\n")
+	fmt.Print("\033[1;33m🎲 DAVIDNULL GAMES 🎲\033[0m\n")
 	fmt.Print("\033[1;33m==================\033[0m\n")
+	fmt.Print("\033[1;32m🍀 Luck Games 🎲 🎯\033[0m\n")
 	fmt.Print("\033[1;36m1. Dice Game 🎲\033[0m\n")
 	fmt.Print("\033[1;36m2. Red or Black 🃏 \033[1;33m(House Favorite! 🌟)\033[0m\n")
 	fmt.Print("\033[1;36m3. Slot Machine 🎰\033[0m\n")
-	fmt.Print("\033[1;36m4. Logout 🔑\033[0m\n")
+	fmt.Print("\033[1;32m🎮 Local 2 Players 🎮\033[0m\n")
+	fmt.Print("\033[1;36m4. 🤠 Fastest typer in the West ⌨️\033[0m\n")
+	fmt.Print("\033[1;36m5. 🧭 Leave the maze! 🧗‍♂️\033[0m\n")
+	fmt.Print("\033[1;36m6. 🚢 Battleship 🚢\033[0m\n")
+	fmt.Print("\033[1;35m🌐 LAN Games (Coming Soon!) 🌐\033[0m\n")
+	fmt.Print("\033[1;36m7. Logout 🔑\033[0m\n")
 	fmt.Print("\033[1;31mQ. Quit 🚫\033[0m\n")
 	fmt.Print("\033[1;33m==================\033[0m\n")
 	fmt.Print("\033[1;37mEnter your choice: \033[0m")
@@ -104,5 +119,20 @@ func playRedOrBlack(user *users.User) {
 
 func playSlotMachine(currentUser *users.User) {
 	game := slots.New(currentUser)
+	game.Play()
+}
+
+func playFastestTyper(currentUser *users.User) {
+	game := fastesttyper.New(currentUser)
+	game.Play()
+}
+
+func playMazeGame(currentUser *users.User) {
+	game := maze.New(currentUser)
+	game.Play()
+}
+
+func playBattleship(currentUser *users.User) {
+	game := battleship.New(currentUser)
 	game.Play()
 }
